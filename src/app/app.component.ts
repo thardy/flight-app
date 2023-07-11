@@ -12,6 +12,7 @@ import { filter, map, merge, Observable } from 'rxjs';
 import { SidebarComponent } from './shell/sidebar/sidebar.component';
 import { NavbarComponent } from './shell/navbar/navbar.component';
 import { ConfigService } from '@demo/shared/util-config';
+import { AuthService } from 'auth';
 
 @Component({
   standalone: true,
@@ -25,8 +26,10 @@ export class AppComponent {
   configService = inject(ConfigService);
   router = inject(Router);
   loading$: Observable<boolean>;
+  authService = inject(AuthService);
 
   constructor() {
+    this.authService.login('Max Mustermann');
     // TODO: In a later lab, we will assure that
     //  loading did happen _before_ we use the config!
     this.configService.loadConfig();
