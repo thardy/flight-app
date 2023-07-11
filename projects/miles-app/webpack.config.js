@@ -8,6 +8,7 @@ module.exports = withModuleFederationPlugin({
 
   exposes: {
     "./Component": "./projects/miles-app/src/app/app.component.ts",
+    "./Routes": "./projects/miles-app/src/app/app.routes.ts",
   },
 
   shared: {
